@@ -11,18 +11,18 @@ export default function CartPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100 px-8 py-10">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gray-100 py-10">
+      <div className="w-full px-8">
 
-        <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
+        <h1 className="text-3xl font-bold mb-8 text-black">Your Cart</h1>
 
         {cart.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
+          <p className="text-gray-800">Your cart is empty.</p>
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
 
             {/* Cart Items */}
-            <div className="md:col-span-2 space-y-6">
+            <div className="md:col-span-2 space-y-6 text-black">
               {cart.map((item) => (
                 <div
                   key={item.id}
@@ -69,14 +69,15 @@ export default function CartPage() {
             </div>
 
             {/* Summary */}
-            <div className="bg-white rounded-xl shadow p-6 h-fit">
-              <h2 className="text-xl font-semibold mb-4">
+            <div className="bg-white rounded-xl shadow-md p-6 h-fit md:w-96 text-black"
+>
+              <h2 className="text-xl font-semibold mb-4  ">
                 Order Summary
               </h2>
 
               <div className="flex justify-between mb-4">
                 <span>Total:</span>
-                <span className="font-bold">
+                <span className="font-bold ">
                   ${totalPrice}
                 </span>
               </div>

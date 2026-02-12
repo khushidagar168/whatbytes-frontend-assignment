@@ -28,27 +28,7 @@ useEffect(() => {
   if (urlCategory) setCategory(urlCategory);
   if (urlPrice) setMaxPrice(Number(urlPrice));
   if (urlSearch) setSearch(urlSearch);
-}, [searchParams]);
-
-
-
-useEffect(() => {
-  const params = new URLSearchParams();
-
-  if (category !== "All") {
-    params.set("category", category);
-  }
-
-  if (maxPrice !== 1000) {
-    params.set("price", maxPrice.toString());
-  }
-
-  if (search) {
-    params.set("search", search);
-  }
-
-  router.push(`?${params.toString()}`);
-}, [category, maxPrice, search]);
+}, []);
 
 
 
@@ -92,7 +72,7 @@ useEffect(() => {
 
         {/* Product Section */}
         <section className="flex-1">
-          <h2 className="text-2xl font-semibold mb-6">
+          <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-6">
             Product Listing
           </h2>
 
@@ -121,9 +101,53 @@ useEffect(() => {
       </main >
 
       {/* Footer Placeholder */}
-      <footer className="bg-blue-900 text-white px-8 py-6 text-center">
-        Footer
-      </footer>
+      <footer className="bg-blue-900 text-white py-10 mt-16">
+  <div className="w-full px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+
+    {/* Filters Section */}
+    <div>
+      <h4 className="font-semibold mb-3 text-lg">Filters</h4>
+      <ul className="space-y-2 text-gray-300">
+        <li className="hover:text-white cursor-pointer">All</li>
+        <li className="hover:text-white cursor-pointer">Electronics</li>
+        <li className="hover:text-white cursor-pointer">Clothing</li>
+        <li className="hover:text-white cursor-pointer">Home</li>
+      </ul>
+    </div>
+
+    {/* About Section */}
+    <div>
+      <h4 className="font-semibold mb-3 text-lg">About Us</h4>
+      <ul className="space-y-2 text-gray-300">
+        <li className="hover:text-white cursor-pointer">About</li>
+        <li className="hover:text-white cursor-pointer">Contact</li>
+        <li className="hover:text-white cursor-pointer">Careers</li>
+      </ul>
+    </div>
+
+    {/* Social Section */}
+    <div>
+      <h4 className="font-semibold mb-3 text-lg">Follow Us</h4>
+      <div className="flex gap-4 mt-2">
+        <div className="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600 cursor-pointer">
+          F
+        </div>
+        <div className="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600 cursor-pointer">
+          T
+        </div>
+        <div className="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600 cursor-pointer">
+          I
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div className="text-center text-gray-400 text-sm mt-10 border-t border-blue-800 pt-6">
+    © 2026 Whatbytes. All rights reserved.
+  </div>
+</footer>
+
 
     </div>
   );

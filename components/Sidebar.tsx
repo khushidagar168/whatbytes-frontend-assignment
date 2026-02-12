@@ -15,7 +15,7 @@ export default function Sidebar({
   const categories = ["All", "Electronics", "Clothing", "Home"];
 
   return (
-    <aside className="w-64 bg-blue-700 text-white rounded-xl p-6 space-y-8 shadow-md">
+    <aside className="w-full lg:w-64 bg-blue-700 text-white rounded-xl p-6 space-y-8 shadow-md h-fit">
       
       <div>
         <h3 className="font-semibold mb-3">Category</h3>

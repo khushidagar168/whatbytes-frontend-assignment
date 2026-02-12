@@ -20,11 +20,13 @@ const totalItems = cart.reduce(
 
   return (
     <header className="bg-blue-700 text-white px-8 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
+
         
-        <div className="text-xl font-bold">
-          Logo
-        </div>
+        <div className="text-2xl font-bold tracking-wide">
+  Whatbytes
+</div>
+
 
         <div className="flex-1 px-10">
           <input
@@ -32,7 +34,8 @@ const totalItems = cart.reduce(
             placeholder="Search for products..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full px-4 py-2 rounded-md text-black focus:outline-none"
+            className="w-full px-4 py-2 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+
           />
         </div>
 <Link href="/cart">
