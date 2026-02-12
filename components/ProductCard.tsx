@@ -11,10 +11,12 @@ export default function ProductCard({
   image,
 }: ProductCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
+    <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition duration-200 p-4 flex flex-col border border-gray-100">
+
       
       {/* Image */}
-      <div className="w-full h-48 bg-gray-200 rounded-md mb-4 overflow-hidden">
+      <div className="w-full h-52 bg-gray-100 rounded-lg mb-4 overflow-hidden">
+
         <img
           src={image}
           alt={title}
@@ -23,17 +25,20 @@ export default function ProductCard({
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold mb-2">
+      <h3 className="text-lg font-semibold mb-1">
+
         {title}
       </h3>
 
       {/* Price */}
-      <p className="text-gray-700 mb-4">
+      <p className="text-gray-600 font-medium mb-4">
+
         ${price}
       </p>
 
       {/* Button */}
-      <button className="mt-auto bg-blue-700 text-white py-2 rounded-md hover:bg-blue-800 transition">
+      <button className="mt-auto bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition font-medium">
+
         Add to Cart
       </button>
 

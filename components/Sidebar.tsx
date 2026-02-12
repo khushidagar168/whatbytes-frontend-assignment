@@ -1,6 +1,7 @@
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-blue-700 text-white rounded-lg p-6 space-y-6">
+    <aside className="w-64 bg-blue-700 text-white rounded-xl p-6 space-y-8 shadow-md"
+>
 
       {/* Category */}
       <div>
