@@ -1,6 +1,8 @@
 "use client";
 
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+
 
 type HeaderProps = {
   search: string;
@@ -8,6 +10,13 @@ type HeaderProps = {
 };
 
 export default function Header({ search, setSearch }: HeaderProps) {
+    const { cart } = useCart();
+
+const totalItems = cart.reduce(
+  (sum, item) => sum + item.quantity,
+  0
+);
+
   return (
     <header className="bg-blue-700 text-white px-8 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -26,10 +35,17 @@ export default function Header({ search, setSearch }: HeaderProps) {
           />
         </div>
 
-        <button className="flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-900 transition">
-          <ShoppingCart size={18} />
-          Cart
-        </button>
+        <button className="relative flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-900 transition">
+  <ShoppingCart size={18} />
+  Cart
+
+  {totalItems > 0 && (
+    <span className="absolute -top-2 -right-2 bg-red-500 text-xs px-2 py-1 rounded-full">
+      {totalItems}
+    </span>
+  )}
+</button>
+
 
       </div>
     </header>

@@ -1,5 +1,9 @@
+
+
 import { products } from "@/data/products";
 import { notFound } from "next/navigation";
+import AddToCartButton from "@/components/AddToCartButton";
+
 
 type Props = {
   params: Promise<{
@@ -55,9 +59,13 @@ export default async function ProductDetail({ params }: Props) {
             />
           </div>
 
-          <button className="bg-blue-700 text-white py-3 rounded-lg hover:bg-blue-800 transition font-medium">
-            Add to Cart
-          </button>
+          <AddToCartButton
+  id={product.id}
+  title={product.title}
+  price={product.price}
+  image={product.image}
+/>
+
         </div>
 
       </div>

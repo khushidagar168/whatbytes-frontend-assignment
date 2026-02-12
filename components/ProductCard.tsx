@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 
 type ProductCardProps = {
@@ -14,6 +15,9 @@ export default function ProductCard({
   price,
   image,
 }: ProductCardProps) {
+
+    const { addToCart } = useCart();
+
   return (
     <Link href={`/product/${id}`}>
   <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition duration-200 p-4 flex flex-col border border-gray-100 cursor-pointer">
@@ -43,10 +47,17 @@ export default function ProductCard({
       </p>
 
       {/* Button */}
-      <button className="mt-auto bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition font-medium">
+      <button
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart({ id, title, price, image });
+  }}
+  className="mt-auto bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition font-medium"
+>
+  Add to Cart
+</button>
 
-        Add to Cart
-      </button>
 
     </div>
     </Link>
