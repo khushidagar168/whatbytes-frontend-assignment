@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
 
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
@@ -13,6 +16,40 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [maxPrice, setMaxPrice] = useState(1000);
+
+  const router = useRouter();
+const searchParams = useSearchParams();
+
+useEffect(() => {
+  const urlCategory = searchParams.get("category");
+  const urlPrice = searchParams.get("price");
+  const urlSearch = searchParams.get("search");
+
+  if (urlCategory) setCategory(urlCategory);
+  if (urlPrice) setMaxPrice(Number(urlPrice));
+  if (urlSearch) setSearch(urlSearch);
+}, [searchParams]);
+
+
+
+useEffect(() => {
+  const params = new URLSearchParams();
+
+  if (category !== "All") {
+    params.set("category", category);
+  }
+
+  if (maxPrice !== 1000) {
+    params.set("price", maxPrice.toString());
+  }
+
+  if (search) {
+    params.set("search", search);
+  }
+
+  router.push(`?${params.toString()}`);
+}, [category, maxPrice, search]);
+
 
 
 
