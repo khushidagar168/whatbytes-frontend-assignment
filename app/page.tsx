@@ -1,5 +1,8 @@
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import ProductCard from "@/components/ProductCard";
+import { products } from "@/data/products";
+
 
 
 export default function Home() {
@@ -17,12 +20,18 @@ export default function Home() {
 
 
         {/* Product Section */}
-        <section className="flex-1 bg-white rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold mb-4">
-            Product Listing
-          </h2>
-          <div>Products will go here</div>
-        </section>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {products.map((product) => (
+    <ProductCard
+      key={product.id}
+      id={product.id}
+      title={product.title}
+      price={product.price}
+      image={product.image}
+    />
+  ))}
+</div>
+
 
       </main>
 
