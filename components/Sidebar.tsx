@@ -1,12 +1,17 @@
 type SidebarProps = {
   selectedCategory: string;
   setSelectedCategory: (value: string) => void;
+  maxPrice: number;
+  setMaxPrice: (value: number) => void;
 };
 
 export default function Sidebar({
   selectedCategory,
   setSelectedCategory,
-}: SidebarProps) {
+  maxPrice,
+  setMaxPrice,
+}: SidebarProps)
+ {
   const categories = ["All", "Electronics", "Clothing", "Home"];
 
   return (
@@ -32,10 +37,20 @@ export default function Sidebar({
       </div>
 
       <div>
-        <h3 className="font-semibold mb-3">Price</h3>
-        <input type="range" min="0" max="1000" className="w-full" />
-        <div className="text-sm mt-2">0 - 1000</div>
-      </div>
+  <h3 className="font-semibold mb-3">Price</h3>
+  <input
+    type="range"
+    min="0"
+    max="1000"
+    value={maxPrice}
+    onChange={(e) => setMaxPrice(Number(e.target.value))}
+    className="w-full"
+  />
+  <div className="text-sm mt-2">
+    0 - ${maxPrice}
+  </div>
+</div>
+
 
     </aside>
   );

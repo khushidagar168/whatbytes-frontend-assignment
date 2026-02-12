@@ -12,6 +12,8 @@ import { products } from "@/data/products";
 export default function Home() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [maxPrice, setMaxPrice] = useState(1000);
+
 
 
   const filteredProducts = products.filter((product) => {
@@ -21,8 +23,11 @@ export default function Home() {
   const matchesCategory =
     category === "All" || product.category === category;
 
-  return matchesSearch && matchesCategory;
+  const matchesPrice = product.price <= maxPrice;
+
+  return matchesSearch && matchesCategory && matchesPrice;
 });
+
 
 
 
@@ -41,7 +46,10 @@ export default function Home() {
         <Sidebar
   selectedCategory={category}
   setSelectedCategory={setCategory}
+  maxPrice={maxPrice}
+  setMaxPrice={setMaxPrice}
 />
+
 
 
 
