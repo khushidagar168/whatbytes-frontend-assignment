@@ -11,10 +11,19 @@ import { products } from "@/data/products";
 
 export default function Home() {
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
+
+  const filteredProducts = products.filter((product) => {
+  const matchesSearch =
+    product.title.toLowerCase().includes(search.toLowerCase());
+
+  const matchesCategory =
+    category === "All" || product.category === category;
+
+  return matchesSearch && matchesCategory;
+});
+
 
 
   return (
@@ -29,7 +38,11 @@ export default function Home() {
 
 
         {/* Sidebar */}
-        <Sidebar />
+        <Sidebar
+  selectedCategory={category}
+  setSelectedCategory={setCategory}
+/>
+
 
 
         {/* Product Section */}
