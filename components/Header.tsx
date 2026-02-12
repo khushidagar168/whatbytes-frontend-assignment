@@ -2,6 +2,7 @@
 
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 
 
 type HeaderProps = {
@@ -34,7 +35,7 @@ const totalItems = cart.reduce(
             className="w-full px-4 py-2 rounded-md text-black focus:outline-none"
           />
         </div>
-
+<Link href="/cart">
         <button className="relative flex items-center gap-2 bg-blue-800 px-4 py-2 rounded-md hover:bg-blue-900 transition">
   <ShoppingCart size={18} />
   Cart
@@ -45,6 +46,7 @@ const totalItems = cart.reduce(
     </span>
   )}
 </button>
+</Link>
 
 
       </div>
