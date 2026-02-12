@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 type ProductCardProps = {
   id: number;
   title: string;
@@ -6,12 +9,15 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({
+    id,
   title,
   price,
   image,
 }: ProductCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition duration-200 p-4 flex flex-col border border-gray-100">
+    <Link href={`/product/${id}`}>
+  <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition duration-200 p-4 flex flex-col border border-gray-100 cursor-pointer">
+
 
       
       {/* Image */}
@@ -43,5 +49,6 @@ export default function ProductCard({
       </button>
 
     </div>
+    </Link>
   );
 }
