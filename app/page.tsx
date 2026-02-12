@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+
 
 export default function Home() {
   return (
@@ -11,9 +13,8 @@ export default function Home() {
       <main className="flex flex-1 max-w-7xl mx-auto w-full px-8 py-6 gap-6">
         
         {/* Sidebar */}
-        <aside className="w-64 bg-white rounded-lg shadow p-4">
-          Sidebar
-        </aside>
+        <Sidebar />
+
 
         {/* Product Section */}
         <section className="flex-1 bg-white rounded-lg shadow p-6">
