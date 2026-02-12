@@ -1,11 +1,11 @@
+import Header from "@/components/Header";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       
       {/* Header Placeholder */}
-      <header className="bg-blue-700 text-white px-8 py-4">
-        Header
-      </header>
+      <Header />
 
       {/* Main Layout */}
       <main className="flex flex-1 max-w-7xl mx-auto w-full px-8 py-6 gap-6">
