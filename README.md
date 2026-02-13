@@ -79,8 +79,8 @@ A responsive e-commerce product listing application built using **Next.js (App R
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone [https://github.com/khushidagar168/whatbytes-frontend-assignment.git]
+cd whatbytes-frontend-assignment
 ```
 
 Install dependencies:
