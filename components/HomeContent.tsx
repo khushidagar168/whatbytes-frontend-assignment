@@ -68,7 +68,7 @@ const normalProducts = filteredProducts.filter(
 
 
       {/* Main Layout */}
-      <main className="flex flex-1 max-w-7xl mx-auto w-full px-6 py-8 gap-8">
+      <main className="flex flex-col lg:flex-row flex-1 max-w-7xl mx-auto w-full px-4 lg:px-6 py-6 lg:py-8 gap-6 lg:gap-8">
 
 
         {/* Sidebar */}
@@ -83,7 +83,8 @@ const normalProducts = filteredProducts.filter(
 
 
         {/* Product Section */}
-        <section className="flex-1 bg-white rounded-xl shadow p-8">
+        <section className="flex-1 bg-white rounded-xl shadow p-6 lg:p-8">
+
   <h2 className="text-2xl font-semibold mb-6 text-gray-800">
             Product Listing
           </h2>
