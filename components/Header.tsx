@@ -24,7 +24,7 @@ const totalItems = cart.reduce(
 
         
         <div className="text-2xl font-bold tracking-wide">
-  Whatbytes
+  Logo
 </div>
 
 
@@ -50,6 +50,8 @@ const totalItems = cart.reduce(
   )}
 </button>
 </Link>
+<div className="w-9 h-9 bg-white rounded-full ml-4"></div>
+
 
 
       </div>

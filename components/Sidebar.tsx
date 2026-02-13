@@ -49,7 +49,43 @@ export default function Sidebar({
   <div className="text-sm mt-2">
     0 - ${maxPrice}
   </div>
+  
 </div>
+
+<div className="bg-white text-gray-800 rounded-xl p-6 shadow mt-6">
+  <h3 className="font-semibold mb-3">Category</h3>
+  <div className="space-y-2 text-sm">
+    {categories.map((cat) => (
+            <div
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`cursor-pointer ${
+                selectedCategory === cat
+                  ? "font-bold underline"
+                  : "hover:underline"
+              }`}
+            >
+              {cat}
+            </div>
+          ))}
+  </div>
+
+  <div className="mt-6">
+    <h3 className="font-semibold mb-2">Price</h3>
+    <input
+      type="number"
+      className="w-full border rounded px-3 py-2 text-sm"
+      placeholder="5000"
+     
+    min="0"
+    max="1000"
+    value={maxPrice}
+    onChange={(e) => setMaxPrice(Number(e.target.value))}
+   
+    />
+  </div>
+</div>
+
 
 
     </aside>

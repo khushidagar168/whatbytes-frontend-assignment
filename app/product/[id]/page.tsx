@@ -33,7 +33,7 @@ export default async function ProductDetail({ params }: Props) {
         </div>
 
         <div className="flex flex-col">
-          <h1 className="text-3xl font-bold mb-4">
+          <h1 className="text-3xl font-bold mb-4 text-black">
             {product.title}
           </h1>
 
@@ -49,13 +49,13 @@ export default async function ProductDetail({ params }: Props) {
             This is a sample product description.
           </p>
 
-          <div className="flex items-center gap-4 mb-6">
-            <label className="font-medium">Quantity:</label>
+          <div className="flex items-center text-gray-600 gap-4 mb-6">
+            <label className="font-medium  ">Quantity:</label>
             <input
               type="number"
               min="1"
               defaultValue="1"
-              className="w-20 border rounded px-2 py-1"
+              className="w-20 border rounded px-2 py-1 "
             />
           </div>
 

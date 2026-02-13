@@ -12,7 +12,8 @@ type CartItem = {
 
 type CartContextType = {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, "quantity">) => void;
+  addToCart: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
+
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
 };
@@ -35,21 +36,25 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (item: Omit<CartItem, "quantity">) => {
-    setCart((prev) => {
-      const existing = prev.find((p) => p.id === item.id);
+  const addToCart = (
+  item: Omit<CartItem, "quantity">,
+  quantity: number = 1
+) => {
+  setCart((prev) => {
+    const existing = prev.find((p) => p.id === item.id);
 
-      if (existing) {
-        return prev.map((p) =>
-          p.id === item.id
-            ? { ...p, quantity: p.quantity + 1 }
-            : p
-        );
-      }
+    if (existing) {
+      return prev.map((p) =>
+        p.id === item.id
+          ? { ...p, quantity: p.quantity + quantity }
+          : p
+      );
+    }
 
-      return [...prev, { ...item, quantity: 1 }];
-    });
-  };
+    return [...prev, { ...item, quantity }];
+  });
+};
+
 
   const removeFromCart = (id: number) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
